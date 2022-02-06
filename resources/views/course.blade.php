@@ -34,14 +34,7 @@
             </div>
             <div class="grid grid-cols-2 gap-4 my-8">
                 @foreach($course->similar() as $similar)
-                    <div class="bg-white shadow-lg rounded-lg px-4 py-6 text-center">
-                        <a href="{{ route('course', $similar->slug) }}">
-                            <img src="{{ $similar->image }}" class="rounded-md mb-2">
-                            <h2 class="text-lg text-gray-600 truncate uppercase">{{ $similar->name }}</h2>
-                            <p class="text-md text-gray-500">{{ $similar->excerpt }}</p>
-                            <img src="{{ $similar->user->avatar }}" class="rounded-full mt-4 mx-auto h-16 w-16">
-                        </a>
-                    </div>
+                    <x-course-card :course="$similar" />
                 @endforeach
             </div>
         </div>
