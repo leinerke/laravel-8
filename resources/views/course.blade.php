@@ -7,7 +7,18 @@
                 <li class="font-medium text-sm text-gray-400 mb-4">
                     Contenido
                 </li>
-                ---
+                @foreach($course->posts as $post)
+                    <li class="flex items-center text-gray-600 mt-2">
+                        {{ $post->name }}
+                        @if($post->free)
+                            <span
+                                class="text-xs text-gray-500 font-semibold bg-gray-300 rounded-full ml-auto px-2"
+                            >
+                                Gratis
+                            </span>
+                        @endif
+                    </li>
+                @endforeach
             </ul>
         </div>
         <div class="text-gray-700 col-span-2">
