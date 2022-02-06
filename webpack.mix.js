@@ -15,7 +15,13 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
-    ]);
+    ])
+    .webpackConfig({
+        watchOptions: {
+            poll: true,
+            ignored: /node_modules/,
+        },
+    });
 
 if (mix.inProduction()) {
     mix.version();
